@@ -41,6 +41,17 @@ main{
     gap: 5px;
 }
 
+.tentativas{
+
+    display: flex;
+    flex-flow: row nowrap;
+    border: 1px solid white;
+    width: max-content;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
 .box-game{
     display: flex;
     flex-flow: row wrap;
@@ -77,6 +88,7 @@ main{
 .box-game > button {
 
     cursor: pointer;
+    color: rgb(0, 119, 255);
 }
 
 .box-game > button:focus{

@@ -1,6 +1,7 @@
 let ValorSorteado = Math.random() * (100 - 1) + 1; // valor para comparação
 let input = document.querySelector("#palpite"); // unico input da pagina
 let contador = 0; // contador fora da função
+let tentativas = document.querySelector("#numeroTentativa"); //campo visual para tentativa
 
 function Palpite() {
     //vai guardar o palpite sem as casas decimais
@@ -23,14 +24,18 @@ function Palpite() {
     } else {
         contador++;
         alert('Parabéns você acertou em ' + contador + ' tentativas');
+        reiniciar();
     }
+    tentativas.innerText = `${contador}`;
 }
 
-//terminar essa funcionalidade
-function recomecar() {
+function reiniciar(){
     input.value = "";
     ValorSorteado = Math.random() * (100 - 1) + 1;
     contador = 0;
- 
+}
+
+function recomecar() {
+    reiniciar()
     alert("Você recomeçou o jogo com um novo valor randômico");
 }
