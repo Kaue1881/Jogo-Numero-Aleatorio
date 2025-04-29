@@ -24,7 +24,7 @@ main{
 }
 
 .box-model{
-    margin: 0 15px;
+    margin: 0 35px;
     width: 400px;
     display: flex;
     flex-flow: row wrap;
@@ -90,7 +90,8 @@ main{
 
     .box-model{
         flex-flow: row nowrap;
-        width: 80%;
+        width: 100%;
+        max-width: 700px;
     }
     .box-info{
         gap: 10px;   
