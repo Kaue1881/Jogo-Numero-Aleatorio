@@ -14,7 +14,6 @@ function PalpiteMais() {
     //comparação para descobrir o valor
     if(ValorSugerido == '') {
         alert("Coloque um valor a caixa vazia");
-        contador++;
         return;
     } else if(ValorSorteadoTruncado < ValorSugerido){
         alert("Mais baixo");
@@ -36,37 +35,40 @@ function PalpiteMenos() {
     // vai guardar o valor do palpite do usuário
     let ValorSugerido = input.value.trim();
     //vai diminuir as tentativas
-
+    
     //comparação para descobrir o valor
-    if (contador == 0){
-        tentativas.innerText = `${contador}`;
-        alert("Você usou todas as suas 6 tentativas e não acertou o palpite, tente novamente.");
-        reiniciar();
-        contador = 6;
+    if(ValorSugerido == '') {
+        alert("Coloque um valor a caixa vazia");
+        return;
+    } else if(ValorSorteadoTruncado < ValorSugerido){
+        alert("Mais baixo");
+        contador--;
+    } else if(ValorSorteadoTruncado > ValorSugerido) {
+        alert("Mais alto");
+        contador--;
     } else {
-        if(ValorSugerido == '') {
-            alert("Coloque um valor a caixa vazia");
-            contador--;
-            return;
-        } else if(ValorSorteadoTruncado < ValorSugerido){
-            alert("Mais baixo");
-            contador--;
-        } else if(ValorSorteadoTruncado > ValorSugerido) {
-            alert("Mais alto");
-            contador--;
-        } else {
-            contador--;
-            alert('Parabéns você acertou em ' + (6 - contador) + ' tentativas');
-            reiniciar();
-        }
+        contador--;
+        alert('Parabéns você acertou em ' + (7 - contador) + ' tentativas');
+        reiniciarMenos();
+    }
+    if (contador == 0){
+        alert("Você usou todas as suas 7 tentativas e não acertou o palpite, tente novamente.");
+        reiniciarMenos();
     }
     tentativas.innerText = `${contador}`;
 }
+
 
 function reiniciar(){
     input.value = "";
     ValorSorteado = Math.random() * (100 - 1) + 1;
     contador = 0;
+}
+
+function reiniciarMenos(){
+    input.value = "";
+    ValorSorteado = Math.random() * (100 - 1) + 1;
+    contador = 7;
 }
 
 function recomecar() {
@@ -88,7 +90,7 @@ function TrocarModo(){
         document.querySelector("#palpite-menos").style.display = "inline-block";
         reiniciar();
         // reinicia o contador
-        contador = 6;
+        contador = 7;
         tentativasPrompt.innerText = "Tentativas restantes:";
         tentativas.innerText = contador;
     } else {
