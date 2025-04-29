@@ -3,8 +3,11 @@ let input = document.querySelector("#palpite"); // unico input da pagina
 let contador = 0; // contador fora da função
 let tentativas = document.querySelector("#numeroTentativa"); //campo visual para tentativa
 let tentativasPrompt = document.querySelector("#tentativas-prompt");
+let contadorVitorias = 0;
+let contagem = document.querySelector("#numeroVitorias");
 
 function PalpiteMais() {
+    alert(ValorSorteado)
     //vai guardar o palpite sem as casas decimais
     const ValorSorteadoTruncado = Math.trunc(ValorSorteado);
     // vai guardar o valor do palpite do usuário
@@ -24,9 +27,11 @@ function PalpiteMais() {
     } else {
         contador++;
         alert('Parabéns você acertou em ' + contador + ' tentativas');
+        contadorVitorias++;
         reiniciar();
     }
     tentativas.innerText = `${contador}`;
+    contagem.innerText = `${contadorVitorias}`;
 }
 
 function PalpiteMenos() {
@@ -49,13 +54,16 @@ function PalpiteMenos() {
     } else {
         contador--;
         alert('Parabéns você acertou em ' + (7 - contador) + ' tentativas');
+        contadorVitorias++;
         reiniciarMenos();
     }
     if (contador == 0){
         alert("Você usou todas as suas 7 tentativas e não acertou o palpite, tente novamente.");
+        contadorVitorias = 0;
         reiniciarMenos();
     }
     tentativas.innerText = `${contador}`;
+    contagem.innerText = `${contadorVitorias}`;
 }
 
 
@@ -110,3 +118,5 @@ function TrocarModo(){
         tentativas.innerText = contador;
     }
 }
+
+//contador de sequencia de vitorias

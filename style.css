@@ -58,6 +58,20 @@ main{
     box-shadow: 5px 5px 1em rgba(0, 0, 0, 0.555);
 }
 
+.contagem-vitoria{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    flex-flow: row nowrap;
+    width: max-content;
+    max-width: 250px;
+    border-radius: 10px;
+    gap: 7px;
+    background-color: rgba(0, 0, 0, 0.548);
+    box-shadow: 5px 5px 1em rgba(0, 0, 0, 0.555);
+}
+
 .box-game{
     display: flex;
     flex-flow: row wrap;
