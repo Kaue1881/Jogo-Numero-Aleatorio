@@ -7,7 +7,6 @@ let contadorVitorias = 0; // contador para vitorias
 let contagem = document.querySelector("#numeroVitorias");//campo tag <p> do html para contagem
 
 function PalpiteMais() {
-    alert(ValorSorteado)
     //vai guardar o palpite sem as casas decimais
     const ValorSorteadoTruncado = Math.trunc(ValorSorteado);
     // vai guardar o valor do palpite do usuário
