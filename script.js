@@ -69,10 +69,19 @@ function reiniciarMenos(){
     input.value = "";
     ValorSorteado = Math.random() * (100 - 1) + 1;
     contador = 7;
+    tentativas.innerText = 7; 
 }
 
 function recomecar() {
-    reiniciar()
+    let BoolMais = null;
+    //validar quando uma função estiver disponivel e outra não
+    if(document.querySelector("#palpite-mais").style.display == "inline-block"){
+        BoolMais = true;
+        reiniciar();
+    } else {
+        BoolMais = false;
+        reiniciarMenos();
+    }
     alert("Você recomeçou o jogo com um novo valor randômico");
 }
 
