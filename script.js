@@ -5,6 +5,7 @@ let tentativas = document.querySelector("#numeroTentativa"); //campo visual para
 let tentativasPrompt = document.querySelector("#tentativas-prompt");// texto de numero de tentativas
 let contadorVitorias = 0; // contador para vitorias
 let contagem = document.querySelector("#numeroVitorias");//campo tag <p> do html para contagem
+let modoJogo = true; // true = modo normal.  |  false = modo de jogo tentativas restantes.
 
 function PalpiteMais() {
     //vai guardar o palpite sem as casas decimais
@@ -67,39 +68,36 @@ function PalpiteMenos() {
 
 
 function reiniciar(){
+    // sobrescreve os elementos
     input.value = "";
     ValorSorteado = Math.random() * (100 - 1) + 1;
     contador = 0;
+    tentativas.innerText = 0; 
 }
 
 function reiniciarMenos(){
+    // sobrescreve os elementos
     input.value = "";
     ValorSorteado = Math.random() * (100 - 1) + 1;
     contador = 7;
     tentativas.innerText = 7; 
 }
 
-function recomecar() {
-    //validar quando uma função estiver disponivel e outra não
-    if(document.querySelector("#palpite-mais").style.display == "inline-block"){
-        BoolMais = true;
+function recomecar(){
+    
+    if(modoJogo == true){
         reiniciar();
+        return;
     } else {
-        BoolMais = false;
         reiniciarMenos();
+        return;
     }
-    alert("Você recomeçou o jogo com um novo valor randômico");
 }
 
 function TrocarModo(){
-    //validar quando uma função estiver disponivel e outra não
-    if(document.querySelector("#palpite-mais").style.display == "inline-block"){
-        BoolMais = true;
-    } else {
-        BoolMais = false;
-    }
     //desativa um dos botões quando outro está ativado
-    if(BoolMais == true){
+    if(modoJogo == true){
+        //quando modo de jogo normal faça:
         document.querySelector("#palpite-mais").style.display = "none";
         document.querySelector("#palpite-menos").style.display = "inline-block";
         reiniciar();
@@ -107,7 +105,9 @@ function TrocarModo(){
         contador = 7;
         tentativasPrompt.innerText = "Tentativas restantes:";
         tentativas.innerText = contador;
+        modoJogo = false;
     } else {
+        //quando modo de jogo tentativas restantes faça:
         document.querySelector("#palpite-mais").style.display = "inline-block";
         document.querySelector("#palpite-menos").style.display = "none";
         reiniciar;
@@ -115,6 +115,7 @@ function TrocarModo(){
         contador = 0;
         tentativasPrompt.innerText = "Tentativas:";
         tentativas.innerText = contador;
+        modoJogo = true;
     }
 }
 
