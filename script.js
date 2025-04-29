@@ -56,13 +56,8 @@ function PalpiteMenos() {
             contador--;
         } else {
             contador--;
-            alert('Parabéns você acertou em ' + contador + ' tentativas');
+            alert('Parabéns você acertou em ' + (6 - contador) + ' tentativas');
             reiniciar();
-        }
-        if (contador == -1){
-            alert("Você usou todas as suas 6 tentativas e não acertou o palpite, tente novamente.");
-            reiniciar();
-            contador = 6;
         }
     }
     tentativas.innerText = `${contador}`;
