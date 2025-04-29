@@ -26,10 +26,11 @@ function Palpite() {
     }
 }
 
+//terminar essa funcionalidade
 function recomecar() {
-    input.innerText = "";
+    input.value = "";
     ValorSorteado = Math.random() * (100 - 1) + 1;
     contador = 0;
 
-    alert("Você recomeçou o jogo")
+    alert("Você recomeçou o jogo com um novo valor randômico");
 }
