@@ -2,9 +2,9 @@ let ValorSorteado = Math.random() * (100 - 1) + 1; // valor para comparação
 let input = document.querySelector("#palpite"); // unico input da pagina
 let contador = 0; // contador fora da função
 let tentativas = document.querySelector("#numeroTentativa"); //campo visual para tentativa
-let tentativasPrompt = document.querySelector("#tentativas-prompt");
-let contadorVitorias = 0;
-let contagem = document.querySelector("#numeroVitorias");
+let tentativasPrompt = document.querySelector("#tentativas-prompt");// texto de numero de tentativas
+let contadorVitorias = 0; // contador para vitorias
+let contagem = document.querySelector("#numeroVitorias");//campo tag <p> do html para contagem
 
 function PalpiteMais() {
     alert(ValorSorteado)
