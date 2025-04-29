@@ -73,7 +73,6 @@ function reiniciarMenos(){
 }
 
 function recomecar() {
-    let BoolMais = null;
     //validar quando uma função estiver disponivel e outra não
     if(document.querySelector("#palpite-mais").style.display == "inline-block"){
         BoolMais = true;
@@ -86,7 +85,6 @@ function recomecar() {
 }
 
 function TrocarModo(){
-    let BoolMais = null;
     //validar quando uma função estiver disponivel e outra não
     if(document.querySelector("#palpite-mais").style.display == "inline-block"){
         BoolMais = true;
