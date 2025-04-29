@@ -85,3 +85,17 @@ main{
     border: 1px solid white;
     color: white;
 }
+
+@media (orientation: landscape){
+
+    .box-model{
+        flex-flow: row nowrap;
+        width: 80%;
+    }
+    .box-info{
+        gap: 10px;   
+    }
+    .box-game{
+        margin: 0;
+    }
+}
