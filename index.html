@@ -20,13 +20,15 @@
                 <hr>
                 <p>Adivinhe o número sorteado de 1 a 100 através dos palpites.</p>
                 <section class="tentativas">
-                    <p>Tentativas: <strong id="numeroTentativa">0</strong></p>
+                    <p id="tentativas-prompt">Tentativas: </p> <strong id="numeroTentativa">0</strong>
                 </section>
             </div>
             <div class="box-game">
                 <input type="number" placeholder="Adivinhe o Numero" id="palpite" alt="Campo para digitar o palpite">
-                <button onclick="Palpite()" aria-label="btn-Palpite">Adivinhar</button>
+                <button id="palpite-mais" onclick="PalpiteMais()" aria-label="btn-Palpite">Adivinhar</button>
+                <button id="palpite-menos" onclick="PalpiteMenos()" aria-label="btn-Palpite">Adivinhar</button>
                 <button onclick="recomecar()" aria-label="btn-Recomecar">Recomeçar</button>
+                <button onclick="TrocarModo()" aria-label="btn-Recomecar">Trocar Modo</button>
             </div>
         </div>
     </main>
