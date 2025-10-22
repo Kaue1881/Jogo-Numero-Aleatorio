@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     content="Uma pagina que realiza um jogo de descoberta
     de um número aleatório">
     <title>Numero Aleatorio - Jogo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.mini.css">
 </head>
 <body>
 
@@ -19,17 +19,17 @@
                 <strong>Um número foi sorteado</strong>
                 <hr>
                 <p>Adivinhe o número sorteado de 1 a 100 através dos palpites.</p>
-                <section class="tentativas">
+                <section class="contagem contagem-tentativas">
                     <p id="tentativas-prompt">Tentativas: </p> <strong id="numeroTentativa">0</strong>
                 </section>
-                <section class="contagem-vitoria">
+                <section class="contagem contagem-vitoria">
                     <p>Vitórias consecutivas: </p> <strong id="numeroVitorias">0</strong>
                 </section>
             </div>
             <div class="box-game">
-                <input type="number" placeholder="Adivinhe o Numero" id="palpite" alt="Campo para digitar o palpite">
-                <button id="palpite-mais" onclick="PalpiteMais()" aria-label="btn-Palpite">Adivinhar</button>
-                <button id="palpite-menos" onclick="PalpiteMenos()" aria-label="btn-Palpite">Adivinhar</button>
+                <input type="number" placeholder="Adivinhe o Numero (Espaço)" id="palpite" alt="Campo para digitar o palpite">
+                <button class="palpite-btn" id="palpite-mais" onclick="PalpiteMais()" aria-label="btn-Palpite">Adivinhar (Enter)</button>
+                <button class="palpite-btn" id="palpite-menos" onclick="PalpiteMenos()" aria-label="btn-Palpite">Adivinhar (Enter)</button>
                 <button onclick="recomecar()" aria-label="btn-Recomecar">Recomeçar</button>
                 <button onclick="TrocarModo()" aria-label="btn-Recomecar">Trocar Modo</button>
             </div>

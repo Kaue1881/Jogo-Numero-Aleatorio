@@ -1,11 +1,26 @@
 let ValorSorteado = Math.random() * (100 - 1) + 1; // valor para comparação
-let input = document.querySelector("#palpite"); // unico input da pagina
 let contador = 0; // contador fora da função
 let tentativas = document.querySelector("#numeroTentativa"); //campo visual para tentativa
 let tentativasPrompt = document.querySelector("#tentativas-prompt");// texto de numero de tentativas
 let contadorVitorias = 0; // contador para vitorias
 let contagem = document.querySelector("#numeroVitorias");//campo tag <p> do html para contagem
 let modoJogo = true; // true = modo normal.  |  false = modo de jogo tentativas restantes.
+const input = document.querySelector("#palpite"); // unico input da pagina
+const palpitebtn = document.querySelector(".palpite-btn");
+
+document.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+        palpitebtn.click();
+    }
+})
+
+document.addEventListener('keydown', function(e){
+    if(e.code === 'Space'){
+        input.focus();
+    }
+})
+
+
 
 function PalpiteMais() {
     //vai guardar o palpite sem as casas decimais
