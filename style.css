@@ -23,7 +23,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(37, 37, 37);
+    background-color: rgb(0, 102, 85);
 }
 
 .box-model{
@@ -34,8 +34,9 @@ main{
     justify-content: center;
     padding: 45px 20px;
     gap: 20px;
-    border: 1px solid rgb(212, 212, 212);
+    border: 1px solid rgb(0, 51, 43);
     border-radius: 15px;
+    background-color: rgb(0, 83, 69);
 }
 
 .box-info{
@@ -43,8 +44,12 @@ main{
     max-width: 319px;
     display: flex;
     flex-flow: column nowrap;
-    color: white;
+    color: rgb(223, 255, 250);
     gap: 5px;
+}
+
+.box-info h1{
+    font-size: 3rem;
 }
 
 .contagem{
@@ -58,6 +63,10 @@ main{
     width: max-content;
     gap: 7px;
     background-color: rgba(0, 0, 0, 0.548);
+}
+
+.contagem-tentativas{
+    margin-top: 10px;
 }
 
 .box-game{
@@ -93,7 +102,7 @@ main{
 .box-game > button {
     max-width: 319px;
     cursor: pointer;
-    color: rgb(0, 119, 255);
+    color: rgb(49, 71, 68);
 }
 
 .box-game > button:focus{

@@ -6,7 +6,9 @@ let contadorVitorias = 0; // contador para vitorias
 let contagem = document.querySelector("#numeroVitorias");//campo tag <p> do html para contagem
 let modoJogo = true; // true = modo normal.  |  false = modo de jogo tentativas restantes.
 const input = document.querySelector("#palpite"); // unico input da pagina
-const palpitebtn = document.querySelector(".palpite-btn");
+const palpitebtn = document.querySelector("#palpite-mais-menos");
+const recomecarbtn = document.querySelector("#recomecar");
+const trocarbtn = document.querySelector("#trocar");
 
 document.addEventListener('keydown', function(e){
     if(e.key === 'Enter'){
@@ -20,8 +22,6 @@ document.addEventListener('keydown', function(e){
     }
 })
 
-
-
 function PalpiteMais() {
     //vai guardar o palpite sem as casas decimais
     const ValorSorteadoTruncado = Math.trunc(ValorSorteado);
@@ -31,7 +31,7 @@ function PalpiteMais() {
 
     //comparação para descobrir o valor
     if(ValorSugerido == '') {
-        alert("Coloque um valor a caixa vazia");
+        alert("Coloque um valor a caixa vazia mais");
         return;
     } else if(ValorSorteadoTruncado < ValorSugerido){
         alert("Mais baixo");
@@ -47,6 +47,7 @@ function PalpiteMais() {
     }
     tentativas.innerText = `${contador}`;
     contagem.innerText = `${contadorVitorias}`;
+    input.value = ' ';
 }
 
 function PalpiteMenos() {
@@ -58,7 +59,7 @@ function PalpiteMenos() {
     
     //comparação para descobrir o valor
     if(ValorSugerido == '') {
-        alert("Coloque um valor a caixa vazia");
+        alert("Coloque um valor a caixa vazia menos");
         return;
     } else if(ValorSorteadoTruncado < ValorSugerido){
         alert("Mais baixo");
@@ -79,8 +80,16 @@ function PalpiteMenos() {
     }
     tentativas.innerText = `${contador}`;
     contagem.innerText = `${contadorVitorias}`;
+    input.value = ' ';
 }
 
+palpitebtn.addEventListener("click", function(){
+    if(modoJogo === true){
+        PalpiteMais();
+    } else {
+        PalpiteMenos();
+    }
+})
 
 function reiniciar(){
     // sobrescreve os elementos
@@ -89,6 +98,7 @@ function reiniciar(){
     contador = 0;
     tentativas.innerText = 0; 
 }
+
 
 function reiniciarMenos(){
     // sobrescreve os elementos
@@ -99,8 +109,7 @@ function reiniciarMenos(){
 }
 
 function recomecar(){
-    
-    if(modoJogo == true){
+    if(modoJogo === true){
         reiniciar();
         return;
     } else {
@@ -109,29 +118,29 @@ function recomecar(){
     }
 }
 
-function TrocarModo(){
-    //desativa um dos botões quando outro está ativado
-    if(modoJogo == true){
-        //quando modo de jogo normal faça:
-        document.querySelector("#palpite-mais").style.display = "none";
-        document.querySelector("#palpite-menos").style.display = "inline-block";
+recomecarbtn.addEventListener("click", function(){
+    recomecar();
+})
+
+//desativa um dos botões quando outro está ativado
+trocarbtn.addEventListener("click",  function TrocarModo(){
+    if(modoJogo === true){
+        //quando estiver em modo de jogo normal, faça:
+        //normal -> tentativas restantes
         reiniciar();
         // reinicia o contador
         contador = 7;
         tentativasPrompt.innerText = "Tentativas restantes:";
         tentativas.innerText = contador;
-        modoJogo = false;
+        modoJogo = false; // ao final troca o valor booleano
     } else {
-        //quando modo de jogo tentativas restantes faça:
-        document.querySelector("#palpite-mais").style.display = "inline-block";
-        document.querySelector("#palpite-menos").style.display = "none";
-        reiniciar;
+        //quando quando estiver em modo de jogo tentativas restantes, faça:
+        //tentativas restantes -> normal
+        reiniciar();
         //reinicia o contador
         contador = 0;
         tentativasPrompt.innerText = "Tentativas:";
         tentativas.innerText = contador;
-        modoJogo = true;
+        modoJogo = true; // // ao final troca o valor booleano
     }
-}
-
-//contador de sequencia de vitorias
+})
