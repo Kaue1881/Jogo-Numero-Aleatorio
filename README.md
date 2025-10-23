@@ -1,5 +1,7 @@
 # 🎲 Jogo de Número Aleatório
 
+![Prévia do jogo](./numero-aleatorio.png)
+
 Um projeto simples e educativo desenvolvido em **HTML**, **CSS** e **JavaScript**, com foco em lógica, interação e boas práticas de código.
 
 ## 🧠 Sobre o Jogo
